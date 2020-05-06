@@ -10,7 +10,13 @@ package com.sqy.home.domain;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
-
+/**
+ * 	房间预订实体类
+ * @ClassName: Home 
+ * @Description: TODO
+ * @author: HUAWEI
+ * @date: 2020年5月6日 上午11:53:29
+ */
 public class Home implements Serializable {
 
 	/**

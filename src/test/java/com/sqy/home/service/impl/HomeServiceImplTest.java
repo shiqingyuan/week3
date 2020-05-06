@@ -27,12 +27,28 @@ public class HomeServiceImplTest {
 	@Resource
 	private HomeService homeService;
 
+	/**
+	 *  列表展示测试类
+	 * @Title: testList 
+	 * @Description: TODO
+	 * @return: void
+	 */
 	@Test
 	public void testList() {
-		PageInfo<Home> list = homeService.list(null, 3, 10);
-		System.out.println(list);
+		PageInfo<Home> info = homeService.list(null, 3, 10);
+		List<Home> list = info.getList();
+		for (Home home : list) {
+			System.out.println(home);
+		}
+		
 	}
 
+	/**
+	 *  批量添加测试类
+	 * @Title: testInsertHomes 
+	 * @Description: TODO
+	 * @return: void
+	 */
 	@Test
 	public void testInsertHomes() {
 
@@ -74,9 +90,47 @@ public class HomeServiceImplTest {
 		System.out.println(i);
 	}
 
+	
+	/**
+	 * 单个添加测试类
+	 * @Title: testInsertHome 
+	 * @Description: TODO
+	 * @return: void
+	 */
 	@Test
 	public void testInsertHome() {
 
+		Home h = new Home();
+		// 1. 模拟从2020年5月1日至今任意随机日期
+		Calendar c = Calendar.getInstance();
+		c.set(2020, 5, 1);
+		h.setDate(DateUtil.date(c.getTime(), new Date()));
+		// System.out.println(c.getTime());
+
+		// 2.调用StringUtil.generateChineseName()创建
+		String name = StringUtil.generateChineseName();
+		h.setName(name);
+		// System.out.println(name);
+
+		// 3. 11位数字
+		int p = RandomUtil.random(100000000, 999999999);
+		String a = String.valueOf(p);
+		int j = RandomUtil.random(10, 99);
+		String b = String.valueOf(j);
+		h.setPhone(a + b);
+		// System.out.println(a+b);
+
+		// 4.房型id来自房型类型表
+		h.setTid(RandomUtil.random(1, 4));
+		// System.out.println(RandomUtil.random(1, 4));
+
+		// 5. 备注 随机汉字
+		h.setBz(StringUtil.randomChineseString(RandomUtil.random(1, 30)));
+		// System.out.println(StringUtil.randomChineseString(RandomUtil.random(1, 30)));
+		// System.out.println(h);
+		
+		int i = homeService.insertHome(h);
+		System.out.println(i);
 	}
 
 }

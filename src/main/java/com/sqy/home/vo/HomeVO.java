@@ -4,7 +4,13 @@ import java.math.BigDecimal;
 import java.util.Date;
 
 import com.sqy.home.domain.Home;
-
+/**
+ * 	条件查询VO类
+ * @ClassName: HomeVO 
+ * @Description: TODO
+ * @author: HUAWEI
+ * @date: 2020年5月6日 上午11:54:34
+ */
 public class HomeVO extends Home {
 
 	private BigDecimal p1;

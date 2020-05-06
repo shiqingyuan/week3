@@ -6,7 +6,7 @@ import java.math.BigInteger;
 /**
  * 
  * @ClassName: HomeType 
- * @Description: 房间类型
+ * @Description: 房间类型实体类
  * @author: HUAWEI
  * @date: 2020年5月6日 上午9:11:37
  */
